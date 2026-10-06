@@ -1,3 +1,10 @@
+// a) What goes wrong when two payments for the same patient happen at the same time:
+//    The  code copies the balance, waits for the payment to save, then adds the amount
+//    to that old copy. While it waits, the second payment also copies the SAME old balance.
+//    Both add their amount to the old balance, and whichever finishes last overwrites the other.
+//    Example: balance is $100, payments of $20 and $30 arrive together.
+//    The balance should be $150, but it ends up $120 or $130 - one payment is lost.
+
 export interface DB {
   query<T = Record<string, unknown>>(sql: string, params?: unknown[]): Promise<{ rows: T[]; rowCount: number }>;
 }

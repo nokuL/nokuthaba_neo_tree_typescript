@@ -8,5 +8,5 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["*.ts", "*.tsx"]
+  "include": ["*.ts", "*.tsx", "Q4/followUpList.tsx", "Q3/paymentBalance.ts", "Q2/userValidation.ts", "Q1/externalAPI.ts"]
 }
